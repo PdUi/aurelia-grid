@@ -1,0 +1,39 @@
+<template>
+    <table>
+        <tbody>
+            <tr
+                class="${row.hasChange ? 'changed' : '' }"
+                repeat.for="row of rows">
+                    <td
+                        class="${row.originalValue[columnDefinition.propertyName] !== row.currentValue[columnDefinition.propertyName] ? 'changed' : ''}"
+                        click.delegate="publishEvent($event, columnDefinition, row)"
+                        dblclick.delegate="publishEvent($event, columnDefinition, row)"
+                        mouseout.delegate="publishEvent($event, columnDefinition, row) & debounce:200"
+                        mouseover.delegate="publishEvent($event, columnDefinition, row) & debounce:200"
+                        css="width: ${columnDefinition.width}px;"
+                        show.bind="columnDefinition.isVisible"
+                        repeat.for="columnDefinition of columnDefinitions">
+                            <input
+                                css="width: ${columnDefinition.width - 10}px;"
+                                if.bind="columnDefinition.isEditable"
+                                show.bind="columnDefinition._id === editableCell.columnId && row.id === editableCell.rowId"
+                                change.delegate="publishEvent($event, columnDefinition, row) & debounce:200"
+                                focusin.delegate="publishEvent($event, columnDefinition, row)"
+                                focusout.delegate="publishEvent($event, columnDefinition, row)"
+                                show.bind="columnDefinition.isEditable"
+                                type.bind="columnDefinition.type"
+                                value.bind="row.currentValue[columnDefinition.propertyName]" />
+                            <span
+                                show.bind="columnDefinition._id !== editableCell.columnId || row.id !== editableCell.rowId">
+                                    ${row.currentValue[columnDefinition.propertyName]}
+                            </span>
+                            <!--<span
+                                show.bind="row.changes[columnDefinition.propertyName] !== row[columnDefinition.propertyName]"
+                                click.delegate="clearChange($event, columnDefinition, row)">
+                                x
+                            </span>-->
+                    </td>
+            </tr>
+        </tbody>
+    </table>
+</template>

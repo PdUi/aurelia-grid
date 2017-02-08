@@ -1,0 +1,165 @@
+grid {
+    --border: 1px solid #CCC;
+
+    --odd-row-background-color: #EEE;
+    --even-row-background-color: #FFF;
+
+    --odd-row-hovered-row-background-color: #DDD;
+    --even-row-hovered-row-background-color: #EEE;
+
+    --odd-row-hovered-cell-background-color: #DDD;
+    --even-row-hovered-cell-background-color: #EEE;
+
+    --odd-row-selected-row-background-color: #CCC;
+    --even-row-selected-row-background-color: #DDD;
+
+    --odd-row-selected-cell-background-color: #CCC;
+    --even-row-selected-cell-background-color: #DDD;
+
+    --odd-row-changed-row-background-color: beige;
+    --even-row-changed-row-background-color: beige;
+
+    --odd-row-changed-cell-background-color: burlywood;
+    --even-row-changed-cell-background-color: bisque;
+
+    --border-radius: 6px;
+
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+grid
+    table {
+        border-spacing: 0;
+}
+
+grid
+    th, td {
+        border-right: var(--border);
+        border-bottom: var(--border);
+        padding: 5px;
+}
+
+grid
+    th:first-child, td:first-child {
+        border-left: var(--border);
+}
+
+grid
+    tr
+        th {
+          border-top: var(--border);
+          text-align: left;
+}
+
+grid
+    tr
+        th > div {
+          display: inline-block;
+}
+
+grid
+    tr:first-child
+        th:first-child {
+            border-top-left-radius: var(--border-radius);
+}
+
+grid
+    tr:first-child
+        th:last-child {
+            border-top-right-radius: var(--border-radius);
+}
+
+grid
+    tr:last-child
+        td:first-child {
+            border-bottom-left-radius: var(--border-radius);
+}
+
+grid
+    tr:last-child
+        td:last-child {
+            border-bottom-right-radius: var(--border-radius);
+}
+
+grid
+    tbody > tr:nth-child(odd) {
+        background-color: var(--odd-row-background-color);
+}
+
+grid
+    tbody > tr:nth-child(odd):hover {
+        background-color: var(--odd-row-hovered-row-background-color);
+}
+
+grid
+    tbody > tr:nth-child(odd):hover > td:hover {
+        background-color: var(--odd-row-hovered-cell-background-color);
+}
+
+grid
+    tbody > tr:nth-child(even) {
+        background-color: var(--even-row-background-color);
+}
+
+grid
+    tbody > tr:nth-child(even):hover {
+        background-color: var(--even-row-hovered-row-background-color);
+}
+
+grid
+    tbody > tr:nth-child(even):hover > td:hover {
+        background-color: var(--even-row-hovered-cell-background-color);
+}
+
+grid
+    tbody > tr > td {
+        text-align: left;
+        height: 21px;
+}
+
+grid 
+    tbody > tr:nth-child(odd).changed {
+    background-color: var(--odd-row-changed-row-background-color);
+}
+
+grid 
+    tbody > tr:nth-child(odd).changed > td.changed {
+    background-color: var(--odd-row-changed-cell-background-color) !important;
+}
+
+grid 
+    tbody > tr:nth-child(even).changed {
+    background-color: var(--even-row-changed-row-background-color);
+}
+
+grid 
+    tbody > tr:nth-child(even).changed >td.changed {
+    background-color: var(--even-row-changed-cell-background-color) !important;
+}
+/*.grid {
+    > tbody {
+        > tr {
+            &:nth-child(odd) {
+               &.selected {
+                  background-color: $grid-odd-row-selected-row-background-color;
+
+                  > td.selected {
+                    background-color: $grid-odd-row-selected-cell-background-color;
+                  }
+                }
+            }
+
+            &:nth-child(even) {
+               &.selected {
+                  background-color: $grid-even-row-selected-row-background-color;
+
+                  > td.selected {
+                    background-color: $grid-even-row-selected-cell-background-color;
+                  }
+                }
+            }
+        }
+    }
+}*/

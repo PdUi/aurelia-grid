@@ -1,0 +1,15 @@
+<template>
+    <table>
+        <thead>
+            <tr> <!-- repeat.for="headerRow of headerRows"> -->
+                <th
+                    repeat.for="columnDefinition of columnDefinitions"
+                    click.delegate="$parent.publishEvent($event, columnDefinition)"
+                    css="width: ${columnDefinition.width}px;"
+                    show.bind="columnDefinition.isVisible">
+                        ${columnDefinition.title ? columnDefinition.title : columnDefinition.propertyName}
+                </th>
+            </tr>
+        </thead>
+    </table>
+</template>

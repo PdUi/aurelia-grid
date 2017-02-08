@@ -1,0 +1,14 @@
+{
+  "name": "au-grid",
+  "version": "0.0.1",
+  "description": "Grid implementation for the Aurelia framework",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typings": "^2.1.0"
+  }
+}

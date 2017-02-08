@@ -1,0 +1,13 @@
+<template>
+    <require from="./grid.css"></require>
+
+    <require from="./grid-head"></require>
+    <require from="./grid-body"></require>
+    <require from="./grid-foot"></require>
+
+    <div class="grid-container" id.bind="id">
+        <grid-head column-definitions.bind="columnDefinitions"></grid-head>
+        <grid-body column-definitions.bind="columnDefinitions" rows.bind="rows"></grid-body>
+        <grid-foot></grid-foot>
+    </div>
+</template>
